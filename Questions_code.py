@@ -141,3 +141,4 @@ plt.savefig('distribution_empirique.png', dpi=300)
 
 #Q5
 
+
