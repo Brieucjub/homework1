@@ -40,13 +40,13 @@ N_q2 = 1000
 donnees_X_knuth = generer_echantillon_poisson_knuth(lambda_star, N_q2)
 
 
+
 # =====================================================================
 # Q4 : Estimateur et distribution empirique
 # =====================================================================
 
-# ---------------------------------------------------------
 # Partie 1 : Convergence et erreur absolue
-# ---------------------------------------------------------
+
 valeurs_N_conv = [10, 50, 100, 500, 1000, 5000, 10000, 50000, 100000]
 
 estimations_lambda = []
@@ -85,13 +85,12 @@ ax2.set_title(r"Décroissance de l'erreur absolue")
 ax2.grid(True, which="both", ls="--", alpha=0.5)
 
 plt.tight_layout()
-# L'exportation doit précéder toute autre commande de gestion de figure
 plt.savefig('convergence_poisson.png', dpi=300)
-plt.close() # Libération de la mémoire graphique
+plt.close() 
 
-# ---------------------------------------------------------
+
 # Partie 2 : Distribution empirique
-# ---------------------------------------------------------
+
 M_dist = 10000 
 valeurs_N_dist = [10, 50, 100, 500, 1000] 
 
@@ -124,11 +123,11 @@ N_tcl = 1000
 M_tcl = 100000
 
 echantillons_tcl = np.random.poisson(lambda_star, (M_tcl, N_tcl))
-lambda_chapeau_tcl = np.mean(echantillons_tcl, axis=1)
+lambda_hat_tcl = np.mean(echantillons_tcl, axis=1)
 
 plt.figure(figsize=(10, 6))
 
-plt.hist(lambda_chapeau_tcl, bins=75, density=True, alpha=0.5, color='steelblue', 
+plt.hist(lambda_hat_tcl, bins=75, density=True, alpha=0.5, color='steelblue', 
          edgecolor='black', label=r"Distribution empirique de $\hat{\lambda}_{N}$")
 
 # Modélisation théorique
